@@ -502,7 +502,7 @@ sub _set_default {
     # get from profile
     my $defaults = $profile->{defaults} || {};
     foreach my $field ( %{ $defaults } ) {
-        $storage->{valid}{$field} ||= $defaults->{$field};
+        unless (defined $storage->{valid}{$field}) { $storage->{valid}{$field} = $defaults->{$field} }
     }
 
     # get from config file
