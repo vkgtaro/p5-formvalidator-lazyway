@@ -8,6 +8,7 @@ inc/Module/Install/Fetch.pm
 inc/Module/Install/Include.pm
 inc/Module/Install/Makefile.pm
 inc/Module/Install/Metadata.pm
+inc/Module/Install/Repository.pm
 inc/Module/Install/Win32.pm
 inc/Module/Install/WriteAll.pm
 lib/FormValidator/LazyWay.pm
@@ -64,6 +65,7 @@ t/filter.t
 t/fix.t
 t/fixed-class-datetime.t
 t/fixed-class-uri.t
+t/input_value_0_is_not_false.t
 t/lazyway-check-conv-profile.t
 t/lazyway-check-dependencies.t
 t/lazyway-check-remove-empty-fields.t

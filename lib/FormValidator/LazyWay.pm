@@ -15,7 +15,7 @@ use Carp;
 use Data::Dumper;
 use Data::Visitor::Encode;
 
-our $VERSION = '0.13';
+our $VERSION = '0.14';
 
 __PACKAGE__->mk_accessors(qw/config unicode rule message fix filter result_class/);
 
