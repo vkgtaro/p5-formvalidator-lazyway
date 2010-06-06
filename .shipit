@@ -1,0 +1,5 @@
+steps = FindVersion, ChangeVersion, CheckChangeLog, DistTest, Commit, Tag, MakeDist, UploadCPAN, Twitter
+twitter.config = /Users/vkgtaro/.twitterrc
+twitter.distname = FormValidator-LazyWay
+twitter.message = shipped %d %v - soon at %u
+svn.tagpattern = release-%v
