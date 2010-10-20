@@ -23,6 +23,6 @@ all_from 'lib/FormValidator/LazyWay.pm';
 
 auto_install;
 
-#auto_set_repository;
+auto_set_repository;
 
 WriteAll;

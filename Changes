@@ -1,5 +1,8 @@
 Revision history for FormValidator-LazyWay
 
+0.16    2010-10-21T01:15:33+09:00
+        - delete commentout from Makefile.PL for auto_set_repository.
+
 0.15    2010-10-20T17:24:15+09:00
         - loading Data::Visitor::Encode is optional now so that do not require Moose to install it.
 
