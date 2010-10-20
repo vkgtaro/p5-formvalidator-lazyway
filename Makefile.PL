@@ -6,7 +6,6 @@ name 'FormValidator-LazyWay';
 author 'Tomohiro Teranishi <tomohiro.teranishi@gmail.com>';
 requires 'Class::Accessor::Fast'      => 0;
 requires 'Data::Validate::URI'        => 0;
-requires 'Data::Visitor::Encode'      => 0;
 requires 'DateTime::Format::Strptime' => 0;
 requires 'Email::Valid'               => 0;
 requires 'Email::Valid::Loose'        => 0;
@@ -24,6 +23,6 @@ all_from 'lib/FormValidator/LazyWay.pm';
 
 auto_install;
 
-auto_set_repository;
+#auto_set_repository;
 
 WriteAll;

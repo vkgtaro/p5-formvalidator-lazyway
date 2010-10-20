@@ -1,5 +1,8 @@
 Revision history for FormValidator-LazyWay
 
+0.15    2010-10-20T17:24:15+09:00
+        - loading Data::Visitor::Encode is optional now so that do not require Moose to install it.
+
 0.14    2010-06-06T23:32:15+09:00
         - fixed 0 is not false if config set default. (thanks Kazuma Shiraiwa)
 
