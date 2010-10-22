@@ -5,13 +5,17 @@ use lib File::Spec->catfile( $FindBin::Bin, 'lib' );
 
 use CGI;
 use Data::Dumper;
-use Data::Visitor::Encode;
 use Encode;
 use FormValidator::LazyWay;
 use MyTestBase;
 use YAML::Syck;
 
 plan tests => 1 * blocks;
+
+SKIP:
+{
+    eval { require Data::Visitor::Encode; };
+    skip "Data::Visitor::Encode is not installed" ,1 * blocks ,if $@;
 
 my $dve = Data::Visitor::Encode->new();
 
@@ -28,6 +32,7 @@ run {
     is_deeply($fv->config, $expected );
 }
 
+}
 __END__
 === sccess1
 --- config yaml_bytes
