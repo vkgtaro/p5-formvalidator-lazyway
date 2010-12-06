@@ -15,7 +15,7 @@ sub range {
 sub int {
     my $num = shift;
     return 1 if $num eq '0';
-    return $num =~ /^-?[1-9][0-9]*$/ ? 1 : 0 ;
+    return $num =~ /^[-+]?[1-9][0-9]*$/ ? 1 : 0 ;
 }
 sub uint {
     my $num = shift;
@@ -25,14 +25,12 @@ sub uint {
 
 sub float {
     my $num = shift;
-    return 1 if &int( $num );
-    return $num =~ /^-?[1-9][0-9]*\.[0-9]+$/ ? 1 : 0 ;
+    return $num =~ /^[-+]?([1-9][0-9]*|0)(\.[0-9]+)?$/ ? 1 : 0 ;
 }
 
 sub ufloat {
     my $num = shift;
-    return 1 if &uint( $num );
-    return $num =~ /^[1-9][0-9]+\.[0-9]+$/ ? 1 : 0 ;
+    return $num =~ /^([1-9][0-9]*|0)(\.[0-9]+)?$/ ? 1 : 0 ;
 }
 
 1;

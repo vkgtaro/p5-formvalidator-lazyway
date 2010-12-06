@@ -14,7 +14,7 @@ use UNIVERSAL::require;
 use Carp;
 use Data::Dumper;
 
-our $VERSION = '0.17';
+our $VERSION = '0.18';
 
 __PACKAGE__->mk_accessors(qw/config unicode rule message fix filter result_class/);
 

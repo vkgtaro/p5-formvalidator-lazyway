@@ -62,3 +62,18 @@ hoge
 -234242424242.234
 --- result chomp
 1
+=== flooat
+--- value  chomp
+00.234
+--- result chomp
+0
+=== flooat
+--- value  chomp
+-0.234
+--- result chomp
+1
+=== flooat
+--- value  chomp
++0.234
+--- result chomp
+1
