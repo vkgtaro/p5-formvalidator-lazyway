@@ -14,7 +14,7 @@ use UNIVERSAL::require;
 use Carp;
 use Data::Dumper;
 
-our $VERSION = '0.18';
+our $VERSION = '0.19';
 
 __PACKAGE__->mk_accessors(qw/config unicode rule message fix filter result_class/);
 
@@ -265,8 +265,7 @@ sub _validation_block {
         next unless exists $storage->{valid}{$field};
 
         # bad logic... $level may change to regex_map
-        my $regex = '';
-        my $validators = $self->_get_validator_methods( $field, \$level , \$regex );
+        my $validators = $self->_get_validator_methods( $field, \$level );
         VALIDATE:
         for my $validator ( @{$validators} ) {
 
@@ -284,7 +283,7 @@ sub _validation_block {
                         $self->_append_error_message( $profile->{lang},
                             $level, $field, $storage,
                             $validator->{label},
-                            $error_messages , $regex );
+                            $error_messages , $validator->{_regex} );
                         $is_invalid++;
                         last CHECK_ARRAYS;
                     }
@@ -308,7 +307,7 @@ sub _validation_block {
                     }
                 }
                 else {
-                    $self->_append_error_message( $profile->{lang}, $level, $field, $storage, $validator->{label}, $error_messages , $regex );
+                    $self->_append_error_message( $profile->{lang}, $level, $field, $storage, $validator->{label}, $error_messages , $validator->{_regex} );
                     $is_invalid++;
                 }
             }
@@ -324,22 +323,22 @@ sub _get_validator_methods {
     my $self  = shift;
     my $field = shift;
     my $level = shift;
-    my $regex = shift;
 
     my $validators = $self->rule->setting->{$$level}{$field};
 
     if ( !defined $validators ) {
 
         # 正規表現にfieldがマッチしたら適応
+        my @validators = ();
         foreach my $regexp ( keys %{ $self->rule->setting->{regex_map} } )
         {
             if ( $field =~ qr/$regexp/ ) {
-                $validators = $self->rule->setting->{regex_map}{$regexp};
+                my @tmp = map { { %$_,_regex => $regexp } } @{$self->rule->setting->{regex_map}{$regexp}};
+                push @validators,@tmp;
                 $$level     = 'regex_map';
-                $$regex     = $regexp;
-                last;
             }
         }
+        if (scalar @validators) { $validators = \@validators }
 
         # 検証モジュールがセットされてないよ。
         croak 'you should set ' . $$level . ':' . $field . ' validate method'

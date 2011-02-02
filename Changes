@@ -1,5 +1,8 @@
 Revision history for FormValidator-LazyWay
 
+0.19    2011-02-02T13:20:00+09:00
+        - fixed regex_map. one field name matches two or more regex_maps. (Kazuma Shiraiwa)
+
 0.18    2010-12-06T18:13:00+09:00
         - bug fix. float & ufloat return 0 when value was start from 0. such as 0.11.
 
