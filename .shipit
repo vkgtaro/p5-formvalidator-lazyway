@@ -1,6 +1,3 @@
-steps = FindVersion, ChangeVersion, CheckChangeLog, DistTest, Commit, Tag, MakeDist, UploadCPAN, Twitter
+steps = FindVersion, ChangeVersion, CheckChangeLog, DistTest, Commit, Tag, MakeDist, UploadCPAN
 git.tagpattern = release-%v
 git.push_to = origin
-twitter.config = /Users/vkgtaro/.twitterrc
-twitter.distname = FormValidator-LazyWay
-twitter.message = shipped %d %v - soon at %u
