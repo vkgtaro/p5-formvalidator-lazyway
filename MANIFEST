@@ -88,6 +88,7 @@ t/message-get-label.t
 t/message-set-lang.t
 t/message.t
 t/message_fail.t
+t/regex_map_multihit.t
 t/rule-datetime-date.t
 t/rule-datetime-datetime.t
 t/rule-datetime-time.t
