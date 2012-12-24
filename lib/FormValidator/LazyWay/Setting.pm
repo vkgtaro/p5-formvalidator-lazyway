@@ -105,7 +105,7 @@ sub _make_setting {
     my $setting = {};
     my $config      = $self->config;
 
-    foreach my $field ( keys %{ $config->{setting}{$type} } ) {
+    foreach my $field ( sort keys %{ $config->{setting}{$type} } ) {
         my $validations = $config->{setting}{$type}{$field}{ $self->name } || [];
         $setting->{$field} = [];
 
