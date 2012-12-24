@@ -146,7 +146,7 @@ setting :
   strict :
     oppai :
         rule :
-            - Email#email 
+            - email#email
             - oppai#name
     email :
         rule :
